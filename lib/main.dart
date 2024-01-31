@@ -17,7 +17,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Despesas Pessoais."),
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView (
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
