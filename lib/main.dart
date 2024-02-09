@@ -3,14 +3,14 @@ import 'dart:math';
 import './components/transaction_form.dart';
 import './components/transaction_list.dart';
 import 'models/transaction.dart';
- 
+
 main() => runApp(ExpensesApp());
- 
+
 class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData tema = ThemeData();
- 
+
     return MaterialApp(
       home: MyHomePage(),
       theme: tema.copyWith(
@@ -19,14 +19,14 @@ class ExpensesApp extends StatelessWidget {
           secondary: Colors.amber,
         ),
         textTheme: tema.textTheme.copyWith(
-          titleLarge: TextStyle(
+          titleLarge: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 20,
@@ -37,12 +37,12 @@ class ExpensesApp extends StatelessWidget {
     );
   }
 }
- 
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
- 
+
 class _MyHomePageState extends State<MyHomePage> {
   final _transactions = [
     Transaction(
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now(),
     ),
   ];
- 
+
   _addTransaction(String title, double value) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
@@ -66,14 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
       value: value,
       date: DateTime.now(),
     );
- 
+
     setState(() {
       _transactions.add(newTransaction);
     });
- 
+
     Navigator.of(context).pop();
   }
- 
+
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
